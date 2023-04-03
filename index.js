@@ -1,6 +1,6 @@
-var URL = "https://api.openweathermap.org/data/2.5/weather?q="
-var key = "1571522051a8ada1791d1447e733a8b1"
-var form = document.querySelector('form')
+const URL = "https://api.openweathermap.org/data/2.5/weather?q="
+const key = "1571522051a8ada1791d1447e733a8b1"
+const form = document.querySelector('form')
 
 // ather form input
 form.addEventListener('submit', (e) => {
@@ -14,7 +14,7 @@ form.addEventListener('submit', (e) => {
             var cityName = data.name + ",";
             var countryCode = data.sys.country;
             var googleMapsLink = "https://www.google.com/maps/search/?api=1&query=" + data.coord.lat + "," + data.coord.lon;
-            var weatherIconUrl = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png";
+            var weatherIconUrl = "https://openweathermap.org/img/wn/02d@2x.png"
             var weatherDesc = data.weather[0].description;
             var actualTemp = ((data.main.temp - 273.15) * 9 / 5 + 32).toFixed(2);
             var feelsLike = ((data.main.feels_like - 273.15) * 9 / 5 + 32).toFixed(2);
@@ -53,7 +53,7 @@ function displayWeatherData(cityName, countryCode, googleMapsLink, weatherIconUr
         var mapLink = document.createElement('a');
         mapLink.setAttribute('href', googleMapsLink);
         mapLink.setAttribute('target', '_blank');
-        mapLink.textContent = 'Click to view map!';
+        mapLink.textContent = 'Click to view map';
         var mapLinkContainer = document.createElement('p');
         mapLinkContainer.appendChild(mapLink);
         weatherSection.appendChild(mapLinkContainer);
